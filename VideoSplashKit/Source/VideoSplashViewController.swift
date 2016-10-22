@@ -69,7 +69,7 @@ open class VideoSplashViewController: UIViewController {
         }
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         moviePlayer.view.frame = videoFrame
         moviePlayer.view.backgroundColor = self.backgroundColor;
@@ -90,7 +90,7 @@ open class VideoSplashViewController: UIViewController {
         }
     }
     
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         guard let player = object as? AVPlayer else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
@@ -108,7 +108,7 @@ open class VideoSplashViewController: UIViewController {
     }
     
     // Override in subclass
-    public func movieReadyToPlay() { }
+    open func movieReadyToPlay() { }
     
     func playerItemDidReachEnd() {
         moviePlayer.player?.seek(to: kCMTimeZero)
